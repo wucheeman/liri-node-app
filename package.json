@@ -22,6 +22,7 @@
   "homepage": "https://github.com/wucheeman/liri-node-app#readme",
   "dependencies": {
     "node-spotify-api": "^1.0.7",
+    "request": "^2.85.0",
     "twitter": "^1.7.1"
   }
 }
