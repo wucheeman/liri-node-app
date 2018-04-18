@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/wucheeman/liri-node-app/issues"
   },
-  "homepage": "https://github.com/wucheeman/liri-node-app#readme"
+  "homepage": "https://github.com/wucheeman/liri-node-app#readme",
+  "dependencies": {
+    "twitter": "^1.7.1"
+  }
 }
