@@ -1,0 +1,19 @@
+[] Initialize a `package.json` file per instructions
+[] Make initial commit to git
+[] Get 'fake' Twitter account; update keypass
+[] Make at least 20 tweets to your Twitter account
+[] Install node pkg for Twitter: (https://www.npmjs.com/package/twitter)
+[] Install node pkg for the Node-Spotify-API:(https://www.npmjs.com/package/node-spotify-api)
+[] Install node pkg Request:(https://www.npmjs.com/package/request)
+[] Install node pkg DotEnv:(https://www.npmjs.com/package/dotenv)
+[] Update .gitignore per instructions
+[] Create keys.js per instructions
+[] Create .env per instructions
+[] Update .env with spotify key
+[] Update .env with Twitter keys per instructions
+[] Create random.txt per instructions
+[] Create liri.js per instructions
+[] Create commit_tasks.txt
+[] Do final pre-dev commit and start development
+
+

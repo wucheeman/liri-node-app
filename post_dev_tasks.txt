@@ -1,0 +1,23 @@
+POST DEVELOPMENT TASKS
+
+Create a README
+===============
+[] Add a `README.md` to your repository describing the project. Review these:
+  * [About READMEs](https://help.github.com/articles/about-readmes/)
+  * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+Add To GitHub Pages and More
+============================
+[] Create a GitHub Pages page for the project
+[] Confirm Github Pages page is accessible from the Internet
+[] Complete full test round on GitHub Pages page and confirm no issues
+[] Add the game to your portfolio via an active link and update GitHub.
+[] Confirm updated portfolio in GitHub Pages is accessible and no issues
+
+Submit Homework
+===============
+[] Provide link to GitHub repo in BCS
+[] Provide link to GitHub Pages in BCS
+[] Provide link to updated portfolio in the comments section of your homework.
+[] Add comment on changes from Requirements.
+[] Add other comments

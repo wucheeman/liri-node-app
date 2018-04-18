@@ -1,0 +1,23 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "## What the project does This is an implementation of the XXXXX, done as homework for the February 2018 UNC Coding Boot Camp. Comments on the app and code will be added here when it is complete.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wucheeman/liri-node-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wucheeman/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/wucheeman/liri-node-app#readme"
+}

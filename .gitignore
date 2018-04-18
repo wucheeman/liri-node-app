@@ -1,0 +1,12 @@
+# Build and Release Folders
+
+# Other files and folders
+snippets/
+
+
+# Executables
+
+node_modules
+.DS_Store
+.env
+
