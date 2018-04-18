@@ -1,5 +1,4 @@
-[] Initialize a `package.json` file per instructions
-[] Make initial commit to git
+[x] Initialize a `package.json` file per instructions
 [] Get 'fake' Twitter account; update keypass
 [] Make at least 20 tweets to your Twitter account
 [] Install node pkg for Twitter: (https://www.npmjs.com/package/twitter)
@@ -7,6 +6,7 @@
 [] Install node pkg Request:(https://www.npmjs.com/package/request)
 [] Install node pkg DotEnv:(https://www.npmjs.com/package/dotenv)
 [] Update .gitignore per instructions
+[x] Make initial commit to git
 [] Create keys.js per instructions
 [] Create .env per instructions
 [] Update .env with spotify key
