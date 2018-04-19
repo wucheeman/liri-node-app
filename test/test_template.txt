@@ -34,6 +34,7 @@ Requirements
 [] Retrieves data for specified default movie if no other is specified
 [] At user command, connects to Spotify and retrieves information based on data in random.txt
 [] Displays information on this song identically to any other song
+[] API secrets are not exposed via the display or the repo
 
 Bonus
 =====
