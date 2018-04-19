@@ -16,7 +16,7 @@ const spotify = new Spotify({
                 })
 // console.log(spotify);
 
-// RESUME: make a new Twitter API client
+// TODO: make a new Twitter API client
 
 
 
@@ -60,4 +60,28 @@ const talkToTwitter = () => {
 
 const talkToUser = () => {
   // takes user input and starts the right processing flow
+  console.log('In talkToUser');
+  const action = process.argv[2];
+  // TODO: normalize/validate user input
+  switch (action) {
+    case 'my-tweets':
+      console.log('retrieving tweets');
+      break;
+    case 'spotify-this-song':
+      console.log('retrieving song');
+      break;
+    case 'movie-this':
+      console.log('retrieving movie');
+      break;
+    case 'do-what-it-says':
+      console.log('doing whatever');
+      break;
+    default:
+      console.log('whoops, no action for that!');
+  }
 }
+
+// APP
+// =============================================================================
+
+talkToUser();

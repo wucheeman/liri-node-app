@@ -47,8 +47,11 @@ Bonus
 
 Functionality
 =============
-[] Game initializes globals correctly
-[] Game reinitializes globals correctly
+[] Game initializes globals correctly / otherwise starts up OK
+[] Game reinitializes globals correctly / otherwise starts up OK
+[] Game accepts all 4 commands when well-formed
+[] Game warns user when any other input is received
+[] Game normalizes / validates input
 
 Display
 =======
