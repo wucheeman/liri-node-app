@@ -11,11 +11,38 @@ Make sure you're working in a copy of this for a homework assignment!
 
 Requirements
 ============
-Fill in from requirements
+[] At user command, connects to Twitter
+[] Retrieves 20 last tweets on connection
+[] Displays each tweet and when it was tweeted
+[] At user command, connects to Spotify and retrieves information on a specified song
+[] Displays these data for each song:
+    () Artist(s)
+    () The song's name
+    () A preview link of the song from Spotify
+    () The album that the song is from
+[] Retrieves data for specified default song if no other is specified
+[] At user command, connects to IMDb and retrieves information on a specified movie
+[] Displays these data for each movie:
+    () Title of the movie.
+    () Year the movie came out.
+    () IMDB Rating of the movie.
+    () Rotten Tomatoes Rating of the movie.
+    () Country where the movie was produced.
+    () Language of the movie.
+    () Plot of the movie.
+    () Actors in the movie.
+[] Retrieves data for specified default movie if no other is specified
+[] At user command, connects to Spotify and retrieves information based on data in random.txt
+[] Displays information on this song identically to any other song
 
 Bonus
 =====
-Fill in from requirements.
+[] App logs output from Twitter to log.txt; does not overwrite existing text
+[] App logs output from Spotify search to log.txt; does not overwrite existing text
+[] App logs output from IMDB search to log.txt; does not overwrite existing text
+[] App connects to IMDB and retrieves information based on data in random.txt
+[] App connects to Twitter and retrieves information based on data in random.txt
+[] App randomly selects between Spotify, Twitter, and IMDB when using data in random.txt
 
 Functionality
 =============
@@ -24,15 +51,9 @@ Functionality
 
 Display
 =======
-[] Page closely resembles demo video
+[] No requirements
 
 Cleanup
 =======
-[] HTML validates
-[] CSS validates
 [] JS delinted (stretch)
 
-GitHub Pages
-============
-[] Page performs on load as expected
-[] Page performs after reload as expected
