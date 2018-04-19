@@ -9,14 +9,14 @@
 [] write required song data to console.log
 [] trigger data retrieval from Spotify and output on user input
 [] enable search for a song from Spotify and output based on user input
-[] access IMDB and retrieve data
-[] retrieve data from IMDB for default movie
+[] access OMDB and retrieve data
+[] retrieve data from OMDB for default movie
 [] write required movie data to console.log
-[] trigger data retrieval from IMDB and output based on user input
-[] enable search for a movie from IMDB and output based on user input
+[] trigger data retrieval from OMDB and output based on user input
+[] enable search for a movie from OMDB and output based on user input
 [] retrieve content of random.txt
 [] use this content to search for a song on Spotify
 [] trigger content retrieval/search based on user input
 [] log output from Twitter to log.txt
 [] log output from Spotify search to log.txt
-[] log output from IMDB search to log.txt
+[] log output from OMDB search to log.txt

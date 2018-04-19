@@ -21,7 +21,7 @@ Requirements
     () A preview link of the song from Spotify
     () The album that the song is from
 [] Retrieves data for specified default song if no other is specified
-[] At user command, connects to IMDb and retrieves information on a specified movie
+[] At user command, connects to OMDb and retrieves information on a specified movie
 [] Displays these data for each movie:
     () Title of the movie.
     () Year the movie came out.
@@ -40,9 +40,9 @@ Bonus
 [] App logs output from Twitter to log.txt; does not overwrite existing text
 [] App logs output from Spotify search to log.txt; does not overwrite existing text
 [] App logs output from IMDB search to log.txt; does not overwrite existing text
-[] App connects to IMDB and retrieves information based on data in random.txt
+[] App connects to OMDB and retrieves information based on data in random.txt
 [] App connects to Twitter and retrieves information based on data in random.txt
-[] App randomly selects between Spotify, Twitter, and IMDB when using data in random.txt
+[] App randomly selects between Spotify, Twitter, and OMDB when using data in random.txt
 
 Functionality
 =============
