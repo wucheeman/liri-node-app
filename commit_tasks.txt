@@ -1,5 +1,7 @@
-[] import key.js and validate access to API secrets
-[] do first cut at pseudo code
+[-] import key.js and validate access to API secrets
+    (x) Spotify
+    () Twitter
+[x] do first cut at pseudo code
 [] rough in function to get user input
 [] access Twitter and retrieve data
 [] write last 20 tweets to console.log
