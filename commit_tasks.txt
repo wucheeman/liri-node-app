@@ -22,6 +22,7 @@
 [] trigger content retrieval/search based on user input
 
 [] normalize/validate user input
+    () title case (stretch)
 [] create an initialization function if needed
 ~~~~~~~~~~~~~~~~~~ BONUS TASKS ~~~~~~~~~~~~~~~~~~~~~~
 [] log output from Twitter to log.txt

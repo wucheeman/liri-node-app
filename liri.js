@@ -36,25 +36,37 @@ const initialMessage = `Liri does tasks when you enter these commands:
 const matchSongName = (song, resp) => {
   // searches Spotify response for sone names matching song
   console.log('in matchSongName');
-  //console.log(resp);
+  // console.log(resp);
   const songArray = [];
   for (var i = 0; i < resp.items.length; i++) {
     // console.log('Song name: ' + resp.items[i].name);
     if (resp.items[i].name === song) {
-      songArray.push(resp.items[i]);
+      // console.log(resp.items[i]);
+        songArray.push(resp.items[i]);
     }
   }
-  // TODO: refactor into a separate function
-  let referent = 'one song: ';
-  if (songArray.length > 1) {
-    referent = 'these songs: ';
+  if (songArray.length === 0) {
+    console.log(`\nI'm sorry, I couldn't find any songs with that name.`);
+  } else {
+    outputSongResults(songArray);
   }
-  console.log('I found ' + referent);
-  console.log('* Artist(s): ' + songArray[0].artists[0].name);
-  console.log('* Song name: ' + songArray[0].name);
-  console.log('* Preview link: ' + songArray[0].external_urls.spotify);
-  console.log('* Album: ' + songArray[0].album.name); 
 }
+
+  const outputSongResults = (songArray) => {
+    // what its name says
+    let referent = 'one song:\n ';
+    if (songArray.length > 1) {
+      referent = 'these songs: \n';
+    }
+    console.log('\nI found ' + referent);
+    for (var i = 0; i < songArray.length; i++) {
+      console.log('* Artist(s): ' + songArray[i].artists[0].name);
+      console.log('* Song name: ' + songArray[i].name);
+      console.log('* Preview link: ' + songArray[i].external_urls.spotify);
+      console.log('* Album: ' + songArray[i].album.name);
+      console.log(' ');
+    }
+  }
 
 const talkToOMDB = () => {
   // handles API call to OMDB and processes the response
@@ -66,13 +78,7 @@ const talkToTwitter = () => {
 
 const talkToSpotify = (song) => {
   // handles API call to Spotify and processes the response
-
-  // node-spotify-api documentation is at
-  // https://www.npmjs.com/package/node-spotify-api
-  // search is easiest way to find song
-  // search: function({ type: 'artist OR album OR track', query: 'My search query', limit: 20 }, callback)
-  // limit is optional
-
+  // api documentation is at https://www.npmjs.com/package/node-spotify-api
   console.log('in talkToSpotify(). Looking for ' + song);
   let resp;
   spotify.search({ type: 'track', query: song }, function(err, data) {
@@ -82,15 +88,8 @@ const talkToSpotify = (song) => {
     resp = data.tracks;
     console.log("The number of items in the response is: " + resp.items.length);
     matchSongName(song, resp);
-    // TODO - delete
-    // These take the first reponse, which doesn't necessarily
-    // mean the song is the right song!
-
     // return resp; 
   });
-
-
-
 }
 
 const talkToRandom = () => {
@@ -112,13 +111,10 @@ const talkToUser = () => {
       let song = process.argv[3];
       if (!song) {
         console.log('no song specified');
-        // user has not specified song; use default
         song = "The Sign"; // by Ace of Base
       }
-      console.log(song);
-      const resp = talkToSpotify(song);
-      //console.log('Back in handle user input, the response is: ' + resp);
-      // matchSongName(song, resp);
+      // console.log('the song is: ' + song);
+      talkToSpotify(song);
       break;
     case 'movie-this':
       console.log('retrieving movie');
