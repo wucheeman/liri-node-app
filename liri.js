@@ -37,10 +37,23 @@ const matchSongName = (song, resp) => {
   // searches Spotify response for sone names matching song
   console.log('in matchSongName');
   //console.log(resp);
-  // const songArray = [];
-  // for (var i = 0; i < resp.items.length; i++) {
-  //   console.log('Song name: ' + resp.items[i].name);
-  // }
+  const songArray = [];
+  for (var i = 0; i < resp.items.length; i++) {
+    // console.log('Song name: ' + resp.items[i].name);
+    if (resp.items[i].name === song) {
+      songArray.push(resp.items[i]);
+    }
+  }
+  // TODO: refactor into a separate function
+  let referent = 'one song: ';
+  if (songArray.length > 1) {
+    referent = 'these songs: ';
+  }
+  console.log('I found ' + referent);
+  console.log('* Artist(s): ' + songArray[0].artists[0].name);
+  console.log('* Song name: ' + songArray[0].name);
+  console.log('* Preview link: ' + songArray[0].external_urls.spotify);
+  console.log('* Album: ' + songArray[0].album.name); 
 }
 
 const talkToOMDB = () => {
@@ -60,43 +73,24 @@ const talkToSpotify = (song) => {
   // search: function({ type: 'artist OR album OR track', query: 'My search query', limit: 20 }, callback)
   // limit is optional
 
-  // FIRST PASS
   console.log('in talkToSpotify(). Looking for ' + song);
-  // let resp;
-  // spotify.search({ type: 'track', query: song }, function(err, data) {
-  //   if (err) {
-  //     return console.log('Error occurred: ' + err);
-  //   }
-  //   resp = data.tracks;
-  //   console.log("The number of items in the response is: " + resp.items.length);
-  //   // These take the first reponse, which doesn't necessarily
-  //   // mean the song is the right song!
-  //   // console.log('Artist(s): ' + resp.items[0].artists[0].name);
-  //   // console.log('Song name: ' + resp.items[0].name);
-  //   // console.log('Preview link: ' + resp.items[0].external_urls.spotify);
-  //   // console.log('Album: ' + resp.items[0].album.name); 
-  //   // return resp; 
-  // });
+  let resp;
+  spotify.search({ type: 'track', query: song }, function(err, data) {
+    if (err) {
+      return console.log('Error occurred: ' + err);
+    }
+    resp = data.tracks;
+    console.log("The number of items in the response is: " + resp.items.length);
+    matchSongName(song, resp);
+    // TODO - delete
+    // These take the first reponse, which doesn't necessarily
+    // mean the song is the right song!
 
-  // SECOND PASS, WITH PROMISE
-  spotify
-    .search({ type: 'track', query: 'All the Small Things' })
-    .then(function(response) {
-      // console.log(response);
-      const resp = response.tracks;
-      // // album
-      console.log(resp.items[0].album.name);
-      //artist
-      console.log(resp.items[0].artists[0].name);
-      // song's URL
-      console.log(resp.items[0].external_urls.spotify);
-      // song's name
-      console.log(resp.items[0].name);
-      return response;
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
+    // return resp; 
+  });
+
+
+
 }
 
 const talkToRandom = () => {
@@ -123,7 +117,7 @@ const talkToUser = () => {
       }
       console.log(song);
       const resp = talkToSpotify(song);
-      console.log('Back in handle user input, the response is: ' + resp);
+      //console.log('Back in handle user input, the response is: ' + resp);
       // matchSongName(song, resp);
       break;
     case 'movie-this':
@@ -140,7 +134,13 @@ const talkToUser = () => {
   }
 }
 
+const welcomeUser = () => {
+  console.log(initialMessage);
+}
+
 // APP
 // =============================================================================
 
+// TODO: delete this?
+welcomeUser();
 talkToUser();

@@ -8,7 +8,7 @@
 [] trigger data retrieval from Twitter and output based on user input
 
 [x] access Spotify and retrieve data
-[] identify correct data from spotify for default song
+[x] identify correct data from spotify for default song
 [] search for a song from Spotify based on user input and output correct result
 
 [] access OMDB and retrieve data
