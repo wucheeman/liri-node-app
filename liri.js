@@ -7,6 +7,11 @@ const dotE = require('dotenv').config();
 const keys = dotE.parsed;
 // console.log(keys);
 
+var request = require("request");
+// yes, I know this is exposed in the URL
+const omdbKey = keys.OMDB_KEY;
+//console.log(omdbKey);
+
 const Spotify = require('node-spotify-api');
 // console.log(Spotify);
 // make new Spotify API client
@@ -16,6 +21,8 @@ const spotify = new Spotify({
                   secret: keys.SPOTIFY_SECRET
                 })
 // console.log(spotify);
+
+
 
 // TODO: make a new Twitter API client
 
@@ -68,8 +75,29 @@ const matchSongName = (song, resp) => {
     }
   }
 
-const talkToOMDB = () => {
+const talkToOMDB = (movie) => {
   // handles API call to OMDB and processes the response
+  // format movie name as OMDB wants it in query
+  nameArray = movie.split(' ');
+  let movieName = nameArray[0];
+  if (nameArray.length > 1) {
+    for (var i = 1; i < nameArray.length; i++) {
+      movieName = movieName + '+' + nameArray[i];
+    }
+  }
+  // compose the query
+  var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + omdbKey;
+  console.log(queryUrl);
+  // make the request
+  request(queryUrl, function(error, response, body) {
+    // If the request is successful (i.e. if the response status code is 200)
+    if (!error && response.statusCode === 200) {
+      console.log(body); // RESUME: study this to ID correct elements!
+      // THEN get the right data elements and remove these
+      console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
+      console.log("The movie's release date is: " + JSON.parse(body).Released);
+    }
+  });
 }
 
 const talkToTwitter = () => {
@@ -118,6 +146,13 @@ const talkToUser = () => {
       break;
     case 'movie-this':
       console.log('retrieving movie');
+      let movie = process.argv[3];
+      if (!movie) {
+        console.log('no movie specified');
+        movie = 'Mr. Nobody.';
+      }
+      console.log('the movie is: ' + movie);
+      talkToOMDB(movie);
       break;
     case 'do-what-it-says':
       console.log('doing whatever');
