@@ -52,6 +52,7 @@ Functionality
 [] Game accepts all 4 commands when well-formed
 [] Game warns user when any other input is received
 [] Game normalizes / validates input
+[] Game provides help when the user enters 'help'
 
 Display
 =======

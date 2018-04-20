@@ -10,15 +10,19 @@
 [x] access Spotify and retrieve data
 [] identify correct data from spotify for default song
 [] search for a song from Spotify based on user input and output correct result
+
 [] access OMDB and retrieve data
 [] retrieve data from OMDB for default movie
 [] write required movie data to console.log
 [] trigger data retrieval from OMDB and output based on user input
 [] enable search for a movie from OMDB and output based on user input
+
 [] retrieve content of random.txt
 [] use this content to search for a song on Spotify
 [] trigger content retrieval/search based on user input
+
 [] normalize/validate user input
+[] create an initialization function if needed
 ~~~~~~~~~~~~~~~~~~ BONUS TASKS ~~~~~~~~~~~~~~~~~~~~~~
 [] log output from Twitter to log.txt
 [] log output from Spotify search to log.txt

@@ -1,5 +1,5 @@
 
-// GLOBAL VARIABLES
+// INITIALIZATIONS
 //==============================================================================
 const dotE = require('dotenv').config();
 //console.log(dotE);
@@ -10,7 +10,7 @@ const keys = dotE.parsed;
 const Spotify = require('node-spotify-api');
 // console.log(Spotify);
 // make new Spotify API client
-console.log('The type of the spotify id is: ' + typeof keys.SPOTIFY_ID);
+//console.log('The type of the spotify id is: ' + typeof keys.SPOTIFY_ID);
 const spotify = new Spotify({
                   id: keys.SPOTIFY_ID,
                   secret: keys.SPOTIFY_SECRET
@@ -18,6 +18,17 @@ const spotify = new Spotify({
 // console.log(spotify);
 
 // TODO: make a new Twitter API client
+
+// GLOBAL VARIABLES
+//==============================================================================
+const initialMessage = `Liri does tasks when you enter these commands:
+* my-tweets - get your last 20 tweets
+* spotify-this-song "song name" - get info on a song. Use " " around the name!
+* movie-this "movie name" - get info on a movie.  Use " " around the name!
+* do-what-it-says - get you random info.
+* help - get you this message
+`
+
 
 // FUNCTIONS
 //==============================================================================
@@ -120,6 +131,9 @@ const talkToUser = () => {
       break;
     case 'do-what-it-says':
       console.log('doing whatever');
+      break;
+    case 'help':
+      console.log(initialMessage);
       break;
     default:
       console.log('whoops, no action for that!');
