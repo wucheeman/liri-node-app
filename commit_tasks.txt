@@ -8,10 +8,8 @@
 [] trigger data retrieval from Twitter and output based on user input
 
 [x] access Spotify and retrieve data
-[] retrieve data from spotify for default song
-[] write required song data to console.log
-[] trigger data retrieval from Spotify and output on user input;
-[] enable search for a song from Spotify and output based on user input
+[] identify correct data from spotify for default song
+[] search for a song from Spotify based on user input and output correct result
 [] access OMDB and retrieve data
 [] retrieve data from OMDB for default movie
 [] write required movie data to console.log
