@@ -1,3 +1,5 @@
+// @ts-check
+
 
 // INITIALIZATIONS
 //==============================================================================
@@ -35,7 +37,6 @@ const initialMessage = `Liri does tasks when you enter these commands:
 * do-what-it-says - get you random info.
 * help - get you this message
 `
-
 
 // FUNCTIONS
 //==============================================================================
@@ -75,10 +76,23 @@ const matchSongName = (song, resp) => {
     }
   }
 
+  const outputMovieResults = (movieInfo) => {
+    console.log('\nI found this information for you:');
+    console.log('Title: ' + JSON.parse(movieInfo).Title);
+    console.log('Release Date: ' + JSON.parse(movieInfo).Released);
+    console.log('IMDB rating: ' + JSON.parse(movieInfo).Ratings[0].Value);
+    console.log('Rotten Tomatoes rating: ' + JSON.parse(movieInfo).Ratings[1].Value);
+    console.log('Country where produced: ' + JSON.parse(movieInfo).Country);
+    console.log('Language: ' + JSON.parse(movieInfo).Language);
+    console.log('Plot: ' + JSON.parse(movieInfo).Plot);
+    console.log('Actors: ' + JSON.parse(movieInfo).Actors);
+    console.log('');
+  }
+
 const talkToOMDB = (movie) => {
   // handles API call to OMDB and processes the response
   // format movie name as OMDB wants it in query
-  nameArray = movie.split(' ');
+  const nameArray = movie.split(' ');
   let movieName = nameArray[0];
   if (nameArray.length > 1) {
     for (var i = 1; i < nameArray.length; i++) {
@@ -93,9 +107,9 @@ const talkToOMDB = (movie) => {
     // If the request is successful (i.e. if the response status code is 200)
     if (!error && response.statusCode === 200) {
       console.log(body); // RESUME: study this to ID correct elements!
-      // THEN get the right data elements and remove these
-      console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
-      console.log("The movie's release date is: " + JSON.parse(body).Released);
+      outputMovieResults(body);
+    } else {
+      console.log("I'm sorry, I had a problem and could not find a movie for you.");
     }
   });
 }

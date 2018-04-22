@@ -14,8 +14,8 @@
 [] add handling of request error similar to talkToOMDB
 
 [x] access OMDB and retrieve data
-[] retrieve data from OMDB for default movie
-[] write required movie data to console.log
+[x] retrieve required data from OMDB for default movie
+[x] write required movie data to console.log
 [] trigger data retrieval from OMDB and output based on user input
 [] enable search for a movie from OMDB and output based on user input
 
@@ -23,9 +23,13 @@
 [] use this content to search for a song on Spotify
 [] trigger content retrieval/search based on user input
 
+[] replace process.argv functionality with inquirer-based functionality
 [] normalize/validate user input
     () title case (stretch)
+[] Group require statements together as first lines in file
 [] create an initialization function if needed
+[] package.json updated to reflect all project dependencies
+
 ~~~~~~~~~~~~~~~~~~ BONUS TASKS ~~~~~~~~~~~~~~~~~~~~~~
 [] log output from Twitter to log.txt
 [] log output from Spotify search to log.txt
