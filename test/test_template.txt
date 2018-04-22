@@ -47,18 +47,23 @@ Bonus
 
 Functionality
 =============
-[] Game initializes globals correctly / otherwise starts up OK
-[] Game reinitializes globals correctly / otherwise starts up OK
-[] Game accepts all 4 commands when well-formed
-[] Game warns user when any other input is received
-[] Game normalizes / validates input
-[] Game provides help when the user enters 'help'
+[] App initializes globals correctly / otherwise starts up OK
+[] App reinitializes globals correctly / otherwise starts up OK
+[] App accepts all 4 commands when well-formed
+[] App warns user when any other input is received
+[] App normalizes / validates input
+[] App provides help when the user enters 'help'
 
 Display
 =======
 [] No requirements
 
+Installation
+============
+[] Package installs correctly in a new directory
+
 Cleanup
 =======
 [] JS delinted (stretch)
+[] package.json reflects all project dependencies
 
