@@ -16,8 +16,8 @@
 [x] access OMDB and retrieve data
 [x] retrieve required data from OMDB for default movie
 [x] write required movie data to console.log
-[] trigger data retrieval from OMDB and output based on user input
-[] enable search for a movie from OMDB and output based on user input
+[x] trigger data retrieval from OMDB and output based on user input
+[x] enable search for a movie from OMDB and output based on user input
 
 [] retrieve content of random.txt
 [] use this content to search for a song on Spotify

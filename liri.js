@@ -77,6 +77,7 @@ const matchSongName = (song, resp) => {
   }
 
   const outputMovieResults = (movieInfo) => {
+    // what its name says
     console.log('\nI found this information for you:');
     console.log('Title: ' + JSON.parse(movieInfo).Title);
     console.log('Release Date: ' + JSON.parse(movieInfo).Released);
@@ -91,7 +92,6 @@ const matchSongName = (song, resp) => {
 
 const talkToOMDB = (movie) => {
   // handles API call to OMDB and processes the response
-  // format movie name as OMDB wants it in query
   const nameArray = movie.split(' ');
   let movieName = nameArray[0];
   if (nameArray.length > 1) {
@@ -101,12 +101,12 @@ const talkToOMDB = (movie) => {
   }
   // compose the query
   var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + omdbKey;
-  console.log(queryUrl);
+  // console.log(queryUrl);
   // make the request
   request(queryUrl, function(error, response, body) {
     // If the request is successful (i.e. if the response status code is 200)
     if (!error && response.statusCode === 200) {
-      console.log(body); // RESUME: study this to ID correct elements!
+      // console.log(body); // RESUME: study this to ID correct elements!
       outputMovieResults(body);
     } else {
       console.log("I'm sorry, I had a problem and could not find a movie for you.");
@@ -141,9 +141,12 @@ const talkToRandom = () => {
 const talkToUser = () => {
   // takes user input and starts the right processing flow
   console.log('In talkToUser');
-  const action = process.argv[2];
-  // TODO: normalize/validate user input
-  // TODO: Handle multi-word titles; Windows requires double quotes around them; need to reject input where quotes have been forgotten
+  let action = process.argv[2];
+  // TODO: probably need to change completely when inquirer is used
+  const validInput = validateUserInput(process.argv);
+  if (!validInput) {
+    action = 'try again';
+  }
   switch (action) {
     case 'my-tweets':
       console.log('retrieving tweets');
@@ -165,11 +168,14 @@ const talkToUser = () => {
         console.log('no movie specified');
         movie = 'Mr. Nobody.';
       }
-      console.log('the movie is: ' + movie);
+      // console.log('the movie is: ' + movie);
       talkToOMDB(movie);
       break;
     case 'do-what-it-says':
       console.log('doing whatever');
+      break;
+    case 'try again':
+      console.log('please use double quotes around the title');
       break;
     case 'help':
       console.log(initialMessage);
@@ -179,6 +185,14 @@ const talkToUser = () => {
   }
 }
 
+const validateUserInput = (userInput) => {
+  let validInput = true;
+  if (userInput.length > 4) {
+    validInput = false;
+  }
+  return validInput;
+}
+
 const welcomeUser = () => {
   console.log(initialMessage);
 }
@@ -186,6 +200,6 @@ const welcomeUser = () => {
 // APP
 // =============================================================================
 
-// TODO: delete this?
+// TODO: delete this first statement?
 welcomeUser();
 talkToUser();
