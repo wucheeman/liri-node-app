@@ -79,16 +79,44 @@ const matchSongName = (song, resp) => {
   }
 
   const outputMovieResults = (movieInfo) => {
-    // what its name says
+    // what its name says; try/catch used in case data are missing
     console.log('\nI found this information for you:');
     console.log('Title: ' + JSON.parse(movieInfo).Title);
-    console.log('Release Date: ' + JSON.parse(movieInfo).Released);
-    console.log('IMDB rating: ' + JSON.parse(movieInfo).Ratings[0].Value);
-    console.log('Rotten Tomatoes rating: ' + JSON.parse(movieInfo).Ratings[1].Value);
-    console.log('Country where produced: ' + JSON.parse(movieInfo).Country);
-    console.log('Language: ' + JSON.parse(movieInfo).Language);
-    console.log('Plot: ' + JSON.parse(movieInfo).Plot);
-    console.log('Actors: ' + JSON.parse(movieInfo).Actors);
+    try {
+      console.log('Release Date: ' + JSON.parse(movieInfo).Released);
+    } catch(error) {
+      console.log('Release Date: ' + 'no data');
+    }
+    try {
+      console.log('IMDB rating: ' + JSON.parse(movieInfo).Ratings[0].Value);
+    } catch(error) {
+      console.log('IMDB rating: ' + 'no data');
+    }
+    try {
+      console.log('Rotten Tomatoes rating: ' + JSON.parse(movieInfo).Ratings[1].Value);
+    } catch(error) {
+      console.log('Rotten Tomatoes rating: ' + 'no data');
+    }
+    try {
+      console.log('Country where produced: ' + JSON.parse(movieInfo).Country);
+    } catch(error) {
+      console.log( 'Country where produced: ' + 'no data');
+    }
+    try {
+      console.log('Language: ' + JSON.parse(movieInfo).Language);
+    } catch(error) {
+      console.log('Language: '+ 'no data');
+    }
+    try {
+      console.log('Plot: ' + JSON.parse(movieInfo).Plot);
+    } catch(error) {
+      console.log( 'Plot: ' + 'no data');
+    }
+    try {
+      console.log('Actors: ' + JSON.parse(movieInfo).Actors);
+    } catch(error) {
+      console.log( 'Actors: ' + 'no data');
+    }
     console.log('');
   }
 

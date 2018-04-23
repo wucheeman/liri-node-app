@@ -18,6 +18,7 @@
 [x] write required movie data to console.log
 [x] trigger data retrieval from OMDB and output based on user input
 [x] enable search for a movie from OMDB and output based on user input
+[x] handle case where information is missing, e.g. 'Bad Day" missing Rotten Tomatoes rating
 
 [] retrieve content of random.txt
 [] use this content to search for a song on Spotify
@@ -25,7 +26,7 @@
 
 [] replace process.argv functionality with inquirer-based functionality
 [] normalize/validate user input
-    () title case (stretch)
+    () title case (stretch) - NB, lower case fails otherwise!
 [] Group require statements together as first lines in file
 [] create an initialization function if needed
 [] package.json updated to reflect all project dependencies
