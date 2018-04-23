@@ -24,7 +24,7 @@
 [] use this content to search for a song on Spotify
 [] trigger content retrieval/search based on user input
 
-[] replace process.argv functionality with inquirer-based functionality
+[x] replace process.argv functionality with inquirer-based functionality
 [] normalize/validate user input
     () title case (stretch) - NB, lower case fails otherwise!
 [] Group require statements together as first lines in file
