@@ -204,24 +204,37 @@ const talkToUser = () => {
       name: "action"
     }])
   .then(function(inquirerResponse) {
+    // TODO: refactor into separate functions called when appropriate by switch 
     action = inquirerResponse.action;
-    // RESUME: test whether the switch works for default choices
     console.log('you chose: ' + action);
     switch (action) {
       case "Get your last tweets":
         console.log('retrieving tweets');
+        // TODO
         break;
       case "Get song info":
         console.log('need to retrieve a song');
-        let song = process.argv[3];
-        if (!song) {
-          console.log('no song specified');
-          song = "The Sign"; // by Ace of Base
-        }
-        // console.log('the song is: ' + song);
-        talkToSpotify(song);
+        let song;
+
+        inquirer
+        .prompt([
+        {
+          type: "input",
+          message: "What is the title of the song",
+          name: "song"
+        }])
+        .then(function(inquirerResponse) {
+          song = inquirerResponse.song;
+          // console.log('the type of song is: ' + typeof song);
+          if (!song) {
+            console.log('no song specified');
+            song = "The Sign"; // by Ace of Base
+          }
+          console.log('The song is: ' + song);
+          talkToSpotify(song);
+        });
         break;
-        case "Get movie info":
+      case "Get movie info":
         console.log('retrieving movie');
         let movie = process.argv[3];
         if (!movie) {
@@ -233,6 +246,7 @@ const talkToUser = () => {
         break;
       case "Get random entertainment info":
         console.log('doing whatever');
+        // TODO
         break;
       case "Never mind":
         console.log('OK, bye');
