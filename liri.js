@@ -100,52 +100,54 @@ const outputSongResults = (songArray) => {
 
 const outputMovieResults = (movieInfo) => {
   // what its name says; try/catch used in case data are missing
-  console.log('\nI found this information for you:');
-  console.log('Title: ' + JSON.parse(movieInfo).Title);
+  let entry = '';
+  entry = '\n' + entry + 'I found this information for you: \n';
+  entry = entry + 'Title: ' + JSON.parse(movieInfo).Title + '\n';
   try {
-    console.log('Release Date: ' + JSON.parse(movieInfo).Released);
+    entry = entry + 'Release Date: ' + JSON.parse(movieInfo).Released + '\n';
   } catch(error) {
-    console.log('Release Date: ' + 'no data');
+    entry = entry + 'Release Date: ' + 'no data\n';
   }
   try {
-    console.log('IMDB rating: ' + JSON.parse(movieInfo).Ratings[0].Value);
+    entry = entry + 'IMDB rating: ' + JSON.parse(movieInfo).Ratings[0].Value+ '\n';
   } catch(error) {
-    console.log('IMDB rating: ' + 'no data');
+    entry = entry + 'IMDB rating: ' + 'no data\n';
   }
   try {
-    console.log('Rotten Tomatoes rating: ' + JSON.parse(movieInfo).Ratings[1].Value);
+    entry = entry + 'Rotten Tomatoes rating: ' + JSON.parse(movieInfo).Ratings[1].Value + '\n';
   } catch(error) {
-    console.log('Rotten Tomatoes rating: ' + 'no data');
+    entry = entry + 'Rotten Tomatoes rating: ' + 'no data\n';
   }
   try {
-    console.log('Country where produced: ' + JSON.parse(movieInfo).Country);
+    entry = entry + 'Country where produced: ' + JSON.parse(movieInfo).Country + '\n';
   } catch(error) {
-    console.log( 'Country where produced: ' + 'no data');
+    entry = entry +  'Country where produced: ' + 'no data\n';
   }
   try {
-    console.log('Language: ' + JSON.parse(movieInfo).Language);
+    entry = entry + 'Language: ' + JSON.parse(movieInfo).Language + '\n';
   } catch(error) {
-    console.log('Language: '+ 'no data');
+    entry = entry + 'Language: '+ 'no data\n';
   }
   try {
-    console.log('Plot: ' + JSON.parse(movieInfo).Plot);
+    entry = entry + 'Plot: ' + JSON.parse(movieInfo).Plot + '\n';
   } catch(error) {
-    console.log( 'Plot: ' + 'no data');
+    entry = entry + 'Plot: ' + 'no data\n';
   }
   try {
-    console.log('Actors: ' + JSON.parse(movieInfo).Actors);
+    entry = entry + 'Actors: ' + JSON.parse(movieInfo).Actors + '\n';
   } catch(error) {
-    console.log( 'Actors: ' + 'no data');
+    entry = entry + 'Actors: ' + 'no data\n';
   }
-  console.log('');
+  logItToScreenAndFile(entry);
 }
 
 const outputTweets = (tweets) => {
-  console.log('\nChanneling thoughts from Lao Tzu:')
+  let entry = '\nChanneling thoughts from Lao Tzu:\n';
   for (var i = 0; i < tweets.length; i++) {
-    console.log('\nTweet' + (i + 1) + ':');
-    console.log(tweets[i].full_text);
+    entry = entry + '\nTweet ' + (i + 1) + ':\n';
+    entry = entry + tweets[i].full_text + ':\n';
   }
+  logItToScreenAndFile(entry);
 }
 
 const talkToOMDB = (movie) => {
