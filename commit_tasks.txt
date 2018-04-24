@@ -26,7 +26,9 @@
 
 [x] replace process.argv functionality with inquirer-based functionality
 [] normalize/validate user input
-    () title case (stretch) - NB, lower case fails otherwise!
+    (x) puts into title case
+    (x) remove leading and trailing spaces
+    (x) removes multiple spaces inside string
 [] Group require statements together as first lines in file
 [] create an initialization function if needed
 [] package.json updated to reflect all project dependencies

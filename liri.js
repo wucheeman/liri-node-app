@@ -42,6 +42,16 @@ var client = new Twitter({
 // FUNCTIONS
 //==============================================================================
 
+const convertToTitleCase = (userInput) => {
+  userInput = userInput.toLowerCase()
+                       .replace(/ +(?= )/g,'') //regex strips out multiple spaces
+                       .split(' ')
+                       .map(function(word) {
+                         return (word.charAt(0).toUpperCase() + word.slice(1));
+                       });
+  return userInput.join(' ');
+}
+
 const matchSongName = (song, resp) => {
   // searches Spotify response for sone names matching song
   console.log('in matchSongName');
@@ -239,11 +249,13 @@ const talkToUser = () => {
           name: "song"
         }])
         .then(function(inquirerResponse) {
-          song = inquirerResponse.song;
+          song = inquirerResponse.song.trim();
           // console.log('the type of song is: ' + typeof song);
           if (!song) {
             console.log('no song specified');
             song = "The Sign"; // by Ace of Base
+          } else {
+            song = convertToTitleCase(song);
           }
           console.log('The song is: ' + song);
           talkToSpotify(song);
@@ -260,10 +272,12 @@ const talkToUser = () => {
           name: "movie"
         }])
         .then(function(inquirerResponse) {
-          movie = inquirerResponse.movie;
+          movie = inquirerResponse.movie.trim();
           if (!movie) {
             console.log('no movie specified');
             movie = 'Mr. Nobody.';
+          } else {
+            movie = convertToTitleCase(movie);
           }
           console.log('The movie is: ' + movie);
           talkToOMDB(movie);
