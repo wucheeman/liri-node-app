@@ -68,6 +68,7 @@ Installation
 
 Cleanup
 =======
-[] JS delinted (stretch)
+[] JS delinted
+[] console.logs removed or commented outs
 [] package.json reflects all project dependencies
 
