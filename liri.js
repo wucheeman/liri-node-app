@@ -120,6 +120,14 @@ const outputMovieResults = (movieInfo) => {
   console.log('');
 }
 
+const outputTweets = (tweets) => {
+  console.log('\nChanneling thoughts from Lao Tzu:')
+  for (var i = 0; i < tweets.length; i++) {
+    console.log('\nTweet' + (i + 1) + ':');
+    console.log(tweets[i].full_text);
+  }
+}
+
 const talkToOMDB = (movie) => {
   // handles API call to OMDB and processes the response
   const nameArray = movie.split(' ');
@@ -166,28 +174,22 @@ const talkToRandom = () => {
 
 const talkToTwitter = () => {
   // handles API call to Twitter and processes the response
-  // this argument worked
-  // 'statuses/user_timeline.json?screen_name=twitterapi&count=2'
-  client.get('statuses/user_timeline.json?screen_name=LaoTzusGuy&count=2', function(error, tweets, response) {
+  client.get('statuses/user_timeline.json?tweet_mode=extended&screen_name=LaoTzusGuy&count=20', function(error, tweets, response) {
     if (error) {
       throw error;
     }
-    console.log(tweets[0].text);  // The favorites. 
-    // console.log(response);  // Raw response object. 
+    //console.log (tweets[0]);
+    outputTweets(tweets);
   });
-  // client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
-  //   console.log(tweets.statuses[0].text);
-  // });
 }
 
 const talkToUser = () => {
-  //   // takes user input and starts the right processing flow
+  // takes user input and starts the right processing flow
   console.log('In talkToUser');
   let action;
   let searchterm;
   inquirer
     .prompt([
-    // Here we give the user a list to choose from.
     {
       type: "list",
       message: "Liri will do these searches for you:",
