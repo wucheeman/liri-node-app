@@ -25,12 +25,11 @@
 [x] trigger content retrieval/search based on user input
 
 [x] replace process.argv functionality with inquirer-based functionality
-[] normalize/validate user input
+[x] normalize/validate user input
     (x) puts into title case
     (x) remove leading and trailing spaces
     (x) removes multiple spaces inside string
-[] Group require statements together as first lines in file
-[] create an initialization function if needed
+[x] Group require statements together as first lines in file
 [] package.json updated to reflect all project dependencies
 
 ~~~~~~~~~~~~~~~~~~ BONUS TASKS ~~~~~~~~~~~~~~~~~~~~~~
