@@ -62,63 +62,63 @@ const matchSongName = (song, resp) => {
   }
 }
 
-  const outputSongResults = (songArray) => {
-    // what its name says
-    let referent = 'one song:\n ';
-    if (songArray.length > 1) {
-      referent = 'these songs: \n';
-    }
-    console.log('\nI found ' + referent);
-    for (var i = 0; i < songArray.length; i++) {
-      console.log('* Artist(s): ' + songArray[i].artists[0].name);
-      console.log('* Song name: ' + songArray[i].name);
-      console.log('* Preview link: ' + songArray[i].external_urls.spotify);
-      console.log('* Album: ' + songArray[i].album.name);
-      console.log(' ');
-    }
+const outputSongResults = (songArray) => {
+  // what its name says
+  let referent = 'one song:\n ';
+  if (songArray.length > 1) {
+    referent = 'these songs: \n';
   }
+  console.log('\nI found ' + referent);
+  for (var i = 0; i < songArray.length; i++) {
+    console.log('* Artist(s): ' + songArray[i].artists[0].name);
+    console.log('* Song name: ' + songArray[i].name);
+    console.log('* Preview link: ' + songArray[i].external_urls.spotify);
+    console.log('* Album: ' + songArray[i].album.name);
+    console.log(' ');
+  }
+}
 
-  const outputMovieResults = (movieInfo) => {
-    // what its name says; try/catch used in case data are missing
-    console.log('\nI found this information for you:');
-    console.log('Title: ' + JSON.parse(movieInfo).Title);
-    try {
-      console.log('Release Date: ' + JSON.parse(movieInfo).Released);
-    } catch(error) {
-      console.log('Release Date: ' + 'no data');
-    }
-    try {
-      console.log('IMDB rating: ' + JSON.parse(movieInfo).Ratings[0].Value);
-    } catch(error) {
-      console.log('IMDB rating: ' + 'no data');
-    }
-    try {
-      console.log('Rotten Tomatoes rating: ' + JSON.parse(movieInfo).Ratings[1].Value);
-    } catch(error) {
-      console.log('Rotten Tomatoes rating: ' + 'no data');
-    }
-    try {
-      console.log('Country where produced: ' + JSON.parse(movieInfo).Country);
-    } catch(error) {
-      console.log( 'Country where produced: ' + 'no data');
-    }
-    try {
-      console.log('Language: ' + JSON.parse(movieInfo).Language);
-    } catch(error) {
-      console.log('Language: '+ 'no data');
-    }
-    try {
-      console.log('Plot: ' + JSON.parse(movieInfo).Plot);
-    } catch(error) {
-      console.log( 'Plot: ' + 'no data');
-    }
-    try {
-      console.log('Actors: ' + JSON.parse(movieInfo).Actors);
-    } catch(error) {
-      console.log( 'Actors: ' + 'no data');
-    }
-    console.log('');
+const outputMovieResults = (movieInfo) => {
+  // what its name says; try/catch used in case data are missing
+  console.log('\nI found this information for you:');
+  console.log('Title: ' + JSON.parse(movieInfo).Title);
+  try {
+    console.log('Release Date: ' + JSON.parse(movieInfo).Released);
+  } catch(error) {
+    console.log('Release Date: ' + 'no data');
   }
+  try {
+    console.log('IMDB rating: ' + JSON.parse(movieInfo).Ratings[0].Value);
+  } catch(error) {
+    console.log('IMDB rating: ' + 'no data');
+  }
+  try {
+    console.log('Rotten Tomatoes rating: ' + JSON.parse(movieInfo).Ratings[1].Value);
+  } catch(error) {
+    console.log('Rotten Tomatoes rating: ' + 'no data');
+  }
+  try {
+    console.log('Country where produced: ' + JSON.parse(movieInfo).Country);
+  } catch(error) {
+    console.log( 'Country where produced: ' + 'no data');
+  }
+  try {
+    console.log('Language: ' + JSON.parse(movieInfo).Language);
+  } catch(error) {
+    console.log('Language: '+ 'no data');
+  }
+  try {
+    console.log('Plot: ' + JSON.parse(movieInfo).Plot);
+  } catch(error) {
+    console.log( 'Plot: ' + 'no data');
+  }
+  try {
+    console.log('Actors: ' + JSON.parse(movieInfo).Actors);
+  } catch(error) {
+    console.log( 'Actors: ' + 'no data');
+  }
+  console.log('');
+}
 
 const talkToOMDB = (movie) => {
   // handles API call to OMDB and processes the response
@@ -146,6 +146,13 @@ const talkToOMDB = (movie) => {
 
 const talkToTwitter = () => {
   // handles API call to Twitter and processes the response
+  client.get('favorites/list', function(error, tweets, response) {
+    // if (error) {
+    //   throw error;
+    // }
+    console.log(tweets);  // The favorites. 
+    console.log(response);  // Raw response object. 
+  });
 }
 
 const talkToSpotify = (song) => {
@@ -178,7 +185,7 @@ const talkToUser = () => {
     // Here we give the user a list to choose from.
     {
       type: "list",
-      message: "Liri will searches for you:",
+      message: "Liri will do these searches for you:",
       choices: ["Get your last tweets", "Get song info", "Get movie info", "Get random entertainment info", "Never mind"],
       name: "action"
     }])
@@ -189,7 +196,7 @@ const talkToUser = () => {
     switch (action) {
       case "Get your last tweets":
         console.log('retrieving tweets');
-        // TODO
+        talkToTwitter();
         break;
       case "Get song info":
         console.log('need to retrieve a song');
@@ -246,15 +253,6 @@ const talkToUser = () => {
     } // end of outer .then curly brackets
   ); // end of outer .then parens
 } // end of talkToUser()
-
-// TODO: delete in no longer needed
-const validateUserInput = (userInput) => {
-  let validInput = true;
-  if (userInput.length > 4) {
-    validInput = false;
-  }
-  return validInput;
-}
 
 // APP
 // =============================================================================
