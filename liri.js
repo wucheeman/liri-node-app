@@ -34,7 +34,7 @@ var client = new Twitter({
   access_token_key: keys.TWITTER_ACCESS_TOKEN_KEY,
   access_token_secret: keys.TWITTER_ACCESS_TOKEN_SECRET
 });
-// console.log(client);
+//console.log(client);
 
 
 // GLOBAL VARIABLES
@@ -146,14 +146,19 @@ const talkToOMDB = (movie) => {
 
 const talkToTwitter = () => {
   // handles API call to Twitter and processes the response
-  client.get('favorites/list', function(error, tweets, response) {
+  // client.get('favorites/list', function(error, tweets, response) {
     // if (error) {
     //   throw error;
     // }
-    console.log(tweets);  // The favorites. 
-    console.log(response);  // Raw response object. 
+    // console.log(tweets);  // The favorites. 
+    //console.log(response);  // Raw response object. 
+  // });
+  client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
+    console.log(tweets);
   });
 }
+
+
 
 const talkToSpotify = (song) => {
   // handles API call to Spotify and processes the response
