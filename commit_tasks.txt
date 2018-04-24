@@ -1,7 +1,7 @@
-[-] import key.js and validate access to API secrets
+[x] import key.js and validate access to API secrets
     (x) Spotify
     (x) OMDB
-    () Twitter
+    (x) Twitter
 [x] do first cut at pseudo code
 [x] rough-in function to get user input
 [] access Twitter and retrieve data

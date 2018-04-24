@@ -5,12 +5,14 @@
 //==============================================================================
 const inquirer = require("inquirer");
 const dotE = require('dotenv').config();
-//console.log(dotE);
+const Twitter = require('twitter');
+const request = require("request");
+
+
 // parsed is the sole key of the dotE object
 const keys = dotE.parsed;
 // console.log(keys);
 
-var request = require("request");
 // yes, I know this is exposed in the URL
 const omdbKey = keys.OMDB_KEY;
 //console.log(omdbKey);
@@ -25,9 +27,15 @@ const spotify = new Spotify({
                 })
 // console.log(spotify);
 
-
-
 // TODO: make a new Twitter API client
+var client = new Twitter({
+  consumer_key: keys.TWITTER_CONSUMER_KEY,
+  consumer_secret: keys.TWITTER_CONSUMER_SECRET,
+  access_token_key: keys.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: keys.TWITTER_ACCESS_TOKEN_SECRET
+});
+// console.log(client);
+
 
 // GLOBAL VARIABLES
 //==============================================================================
