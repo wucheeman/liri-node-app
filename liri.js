@@ -144,22 +144,6 @@ const talkToOMDB = (movie) => {
   });
 }
 
-const talkToTwitter = () => {
-  // handles API call to Twitter and processes the response
-  // client.get('favorites/list', function(error, tweets, response) {
-    // if (error) {
-    //   throw error;
-    // }
-    // console.log(tweets);  // The favorites. 
-    //console.log(response);  // Raw response object. 
-  // });
-  client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
-    console.log(tweets);
-  });
-}
-
-
-
 const talkToSpotify = (song) => {
   // handles API call to Spotify and processes the response
   // api documentation is at https://www.npmjs.com/package/node-spotify-api
@@ -178,6 +162,22 @@ const talkToSpotify = (song) => {
 
 const talkToRandom = () => {
   // handles random decision on which API to call
+}
+
+const talkToTwitter = () => {
+  // handles API call to Twitter and processes the response
+  // this argument worked
+  // 'statuses/user_timeline.json?screen_name=twitterapi&count=2'
+  client.get('statuses/user_timeline.json?screen_name=LaoTzusGuy&count=2', function(error, tweets, response) {
+    if (error) {
+      throw error;
+    }
+    console.log(tweets[0].text);  // The favorites. 
+    // console.log(response);  // Raw response object. 
+  });
+  // client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
+  //   console.log(tweets.statuses[0].text);
+  // });
 }
 
 const talkToUser = () => {
