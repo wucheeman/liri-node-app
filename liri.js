@@ -52,6 +52,15 @@ const convertToTitleCase = (userInput) => {
   return userInput.join(' ');
 }
 
+const logItToScreenAndFile = (entry) => {
+  // logs search results to screen and file
+  console.log(entry);
+	fs.appendFile('log.txt', entry + '\n', function (err) {
+	  if (err) throw err;
+	  console.log('Saved!');
+	});
+}
+
 const matchSongName = (song, resp) => {
   // searches Spotify response for sone names matching song
   console.log('in matchSongName');
@@ -77,13 +86,15 @@ const outputSongResults = (songArray) => {
   if (songArray.length > 1) {
     referent = 'these songs: \n';
   }
-  console.log('\nI found ' + referent);
+  logItToScreenAndFile('\nI found ' + referent);
   for (var i = 0; i < songArray.length; i++) {
-    console.log('* Artist(s): ' + songArray[i].artists[0].name);
-    console.log('* Song name: ' + songArray[i].name);
-    console.log('* Preview link: ' + songArray[i].external_urls.spotify);
-    console.log('* Album: ' + songArray[i].album.name);
-    console.log(' ');
+    // TODO: template syntax would handle this better
+    let entry = '';
+    entry = entry + ('  * Artist(s): ' + songArray[i].artists[0].name + '\n');
+    entry = entry + ('  * Song name: ' + songArray[i].name + '\n');
+    entry = entry + ('  * Preview link: ' + songArray[i].external_urls.spotify + '\n');
+    entry = entry + ('  * Album: ' + songArray[i].album.name + '\n');
+    logItToScreenAndFile(entry);
   }
 }
 
