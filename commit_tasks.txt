@@ -20,9 +20,9 @@
 [x] enable search for a movie from OMDB and output based on user input
 [x] handle case where information is missing, e.g. 'Bad Day" missing Rotten Tomatoes rating
 
-[] retrieve content of random.txt
-[] use this content to search for a song on Spotify
-[] trigger content retrieval/search based on user input
+[x] retrieve content of random.txt
+[x] use this content to search for a song on Spotify
+[x] trigger content retrieval/search based on user input
 
 [x] replace process.argv functionality with inquirer-based functionality
 [] normalize/validate user input

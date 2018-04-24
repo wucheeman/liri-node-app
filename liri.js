@@ -1,12 +1,15 @@
 // @ts-check
+// This turns on type checking in VS Code
 
 
-// INITIALIZATIONS
+// GLOBAL VARIABLES
 //==============================================================================
 const inquirer = require("inquirer");
 const dotE = require('dotenv').config();
 const Twitter = require('twitter');
 const request = require("request");
+const Spotify = require('node-spotify-api');
+const fs = require('fs');
 
 
 // parsed is the sole key of the dotE object
@@ -17,7 +20,6 @@ const keys = dotE.parsed;
 const omdbKey = keys.OMDB_KEY;
 //console.log(omdbKey);
 
-const Spotify = require('node-spotify-api');
 // console.log(Spotify);
 // make new Spotify API client
 //console.log('The type of the spotify id is: ' + typeof keys.SPOTIFY_ID);
@@ -36,9 +38,6 @@ var client = new Twitter({
 });
 //console.log(client);
 
-
-// GLOBAL VARIABLES
-//==============================================================================
 
 // FUNCTIONS
 //==============================================================================
@@ -152,6 +151,32 @@ const talkToOMDB = (movie) => {
   });
 }
 
+const talkToRandom = () => {
+  // handles random decision on which API to call
+  fs.readFile('random.txt', function(err, data) {
+    if (err) throw err;
+    const result = data.toString('utf8');
+    console.log(result);
+    const actionSearchTermArray = result.split(',');
+    const action = actionSearchTermArray[0];
+    let searchTerm = actionSearchTermArray[1].trim();
+    switch (action) {
+      // code anticipates near future development
+      case 'Get your last tweets':
+        talkToTwitter();
+        break;
+      case 'Get song info':
+        talkToSpotify(searchTerm);
+        break;
+      case 'Get movie info':
+        talkToSpotify(searchTerm);
+        break;
+      default:
+        console.log('oh no, this should not happen!');
+      }
+  });
+}
+
 const talkToSpotify = (song) => {
   // handles API call to Spotify and processes the response
   // api documentation is at https://www.npmjs.com/package/node-spotify-api
@@ -168,10 +193,6 @@ const talkToSpotify = (song) => {
   });
 }
 
-const talkToRandom = () => {
-  // handles random decision on which API to call
-}
-
 const talkToTwitter = () => {
   // handles API call to Twitter and processes the response
   client.get('statuses/user_timeline.json?tweet_mode=extended&screen_name=LaoTzusGuy&count=20', function(error, tweets, response) {
@@ -183,6 +204,7 @@ const talkToTwitter = () => {
   });
 }
 
+// TODO: refactor so talkToRandom can use
 const talkToUser = () => {
   // takes user input and starts the right processing flow
   console.log('In talkToUser');
@@ -249,7 +271,7 @@ const talkToUser = () => {
         break;
       case "Get random entertainment info":
         console.log('doing whatever');
-        // TODO
+        talkToRandom();
         break;
       case "Never mind":
         console.log('OK, bye');
