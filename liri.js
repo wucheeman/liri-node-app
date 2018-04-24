@@ -39,14 +39,6 @@ var client = new Twitter({
 
 // GLOBAL VARIABLES
 //==============================================================================
-// TODO delete when replaced
-const initialMessage = `Liri does tasks when you enter these commands:
-* my-tweets - get your last 20 tweets
-* spotify-this-song "song name" - get info on a song. Use " " around the name!
-* movie-this "movie name" - get info on a movie.  Use " " around the name!
-* do-what-it-says - get you random info.
-* help - get you this message
-`
 
 // FUNCTIONS
 //==============================================================================
@@ -176,8 +168,6 @@ const talkToRandom = () => {
   // handles random decision on which API to call
 }
 
-
-
 const talkToUser = () => {
   //   // takes user input and starts the right processing flow
   console.log('In talkToUser');
@@ -266,13 +256,7 @@ const validateUserInput = (userInput) => {
   return validInput;
 }
 
-const welcomeUser = () => {
-  console.log(initialMessage);
-}
-
 // APP
 // =============================================================================
 
-// TODO: delete this first statement?
-// welcomeUser();
 talkToUser();
