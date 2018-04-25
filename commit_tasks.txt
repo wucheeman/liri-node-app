@@ -29,7 +29,7 @@
     (x) remove leading and trailing spaces
     (x) removes multiple spaces inside string
 [x] Group require statements together as first lines in file
-[] package.json updated to reflect all project dependencies
+[x] package.json updated to reflect all project dependencies
 
 ~~~~~~~~~~~~~~~~~~ BONUS TASKS ~~~~~~~~~~~~~~~~~~~~~~
 [x] log output from Twitter to log.txt
@@ -37,3 +37,6 @@
 [x] log output from OMDB search to log.txt
 [x] modify other console logs to make log files sensible
 [x] add timestamps to log entries
+
+~~~~~~~~~~~~~~~~~~ FINAL TASKS ~~~~~~~~~~~~~~~~~~~~~~
+[] Clean out console.logs, remove unused code and comments, delint
