@@ -157,7 +157,9 @@ const talkToOMDB = (movie) => {
   }
   var queryUrl = 'http://www.omdbapi.com/?t=' + movieName + '&y=&plot=short&apikey=' + omdbKey;
   request(queryUrl, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
+    if (body.indexOf('Movie not found!') > -1) {
+      console.log('Sorry, I could not find a movie with that name.');
+    } else if (!error && response.statusCode === 200) {
       outputMovieResults(body);
     } else {
       console.log("I'm sorry, I had a problem and could not find a movie for you.");
