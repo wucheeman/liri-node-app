@@ -39,4 +39,4 @@
 [x] add timestamps to log entries
 
 ~~~~~~~~~~~~~~~~~~ FINAL TASKS ~~~~~~~~~~~~~~~~~~~~~~
-[] Clean out console.logs, remove unused code and comments, delint
+[x] Clean out console.logs, remove unused code and comments, delint

@@ -58,6 +58,7 @@ const logItToScreenAndFile = (entry) => {
   fs.appendFile('log.txt', now + + '\n' + entry + '\n', function (err) {
     if (err) throw err;
   });
+  console.log(entry);
 };
 
 const matchSongName = (song, resp) => {
