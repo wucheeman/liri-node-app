@@ -11,7 +11,6 @@
 [x] access Spotify and retrieve data
 [x] identify correct data from spotify for default song
 [x] search for a song from Spotify based on user input and output correct result
-[] add handling of request error similar to talkToOMDB
 
 [x] access OMDB and retrieve data
 [x] retrieve required data from OMDB for default movie
@@ -33,6 +32,8 @@
 [] package.json updated to reflect all project dependencies
 
 ~~~~~~~~~~~~~~~~~~ BONUS TASKS ~~~~~~~~~~~~~~~~~~~~~~
-[] log output from Twitter to log.txt
-[] log output from Spotify search to log.txt
-[] log output from OMDB search to log.txt
+[x] log output from Twitter to log.txt
+[x] log output from Spotify search to log.txt
+[x] log output from OMDB search to log.txt
+[x] modify other console logs to make log files sensible
+[x] add timestamps to log entries
