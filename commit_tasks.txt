@@ -35,4 +35,5 @@
 [x] log output from Twitter to log.txt
 [x] log output from Spotify search to log.txt
 [x] log output from OMDB search to log.txt
-[] modify other console logs to make log files sensible
+[x] modify other console logs to make log files sensible
+[x] add timestamps to log entries

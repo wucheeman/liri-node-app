@@ -154,7 +154,7 @@ const outputTweets = (tweets) => {
   let entry = '\nChanneling thoughts from Lao Tzu:\n';
   for (var i = 0; i < tweets.length; i++) {
     entry = entry + '\nTweet ' + (i + 1) + ':\n';
-    entry = entry + tweets[i].full_text + ':\n';
+    entry = entry + tweets[i].full_text + '\n';
   }
   logItToScreenAndFile(entry);
 }
