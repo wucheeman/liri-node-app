@@ -1,0 +1,49 @@
+LIRI TEST RESULTS - RUN 4
+
+d = deferred
+e = met by enhancement
+f = failed
+p = passed
+s = skipped
+w = waiting for further work
+
+Testing was limited to movie search related cases, plus the final installation/package.json test cases. No other functionality was changed from test run 3.
+
+Requirements
+============
+[p] At user command, connects to OMDb and retrieves information on a specified movie
+[p] Displays these data for each movie:
+    () Title of the movie.
+    () Year the movie came out.
+    () IMDB Rating of the movie.
+    () Rotten Tomatoes Rating of the movie.
+    () Country where the movie was produced.
+    () Language of the movie.
+    () Plot of the movie.
+    () Actors in the movie.
+[p] Retrieves data for specified default movie if no other is specified
+
+Bonus
+=====
+[p] App logs output from OMDB search to log.txt; does not overwrite existing text
+
+Functionality
+=============
+[p] App normalizes / validates input
+    () leading white spaces
+    () multiple white spaces within search term
+    () some/all initial letters are lower case
+[p] Handles missing data in response without failure ('Bad Day' test case; Train Watching test case)
+
+Display
+=======
+No requirements
+
+Installation
+============
+[p] Package installs correctly in a new directory
+
+Cleanup
+=======
+[p] package.json reflects all project dependencies
+

@@ -1,0 +1,70 @@
+LIRI TEST RUN 2 RESULTS
+
+d = deferred
+e = met by enhancement
+f = failed
+p = passed
+s = skipped
+w = waiting for further work
+
+Requirements
+============
+[p] At user command, connects to Twitter
+[p] Retrieves 20 last tweets on connection
+[f] Displays each tweet and when it was tweeted
+[p] At user command, connects to Spotify and retrieves information on a specified song
+[f] Displays these data for each song:
+    () Artist(s)
+    () The song's name
+    () A preview link of the song from Spotify
+    () The album that the song is from
+[p] Retrieves data for specified default song if no other is specified
+[p] At user command, connects to OMDb and retrieves information on a specified movie
+[f] Displays these data for each movie:
+    () Title of the movie.
+    () Year the movie came out.
+    () IMDB Rating of the movie.
+    () Rotten Tomatoes Rating of the movie.
+    () Country where the movie was produced.
+    () Language of the movie.
+    () Plot of the movie.
+    () Actors in the movie.
+[p] Retrieves data for specified default movie if no other is specified
+[p] At user command, connects to Spotify and retrieves information based on data in random.txt
+[f] Displays information on this song identically to any other song
+[p] API secrets are not exposed via the display or the repo
+
+Bonus
+=====
+[p] App logs output from Twitter to log.txt; does not overwrite existing text
+[p] App logs output from Spotify search to log.txt; does not overwrite existing text
+[p] App logs output from OMDB search to log.txt; does not overwrite existing text
+[d] App connects to OMDB and retrieves information based on data in random.txt
+[d] App connects to Twitter and retrieves information based on data in random.txt
+[d] App randomly selects between Spotify, Twitter, and OMDB when using data in random.txt
+
+Functionality
+=============
+[p] App initializes globals correctly / otherwise starts up OK
+[p] App reinitializes globals correctly / otherwise starts up OK
+[d] App normalizes / validates input
+    () leading white spaces
+    () multiple white spaces within search term
+    () some/all initial letters are lower case
+[d] App provides help when the user enters 'help'
+[d] Handles missing data in response without failure ('Bad Day' test case)
+
+Display
+=======
+No requirements
+
+Installation
+============
+[d] Package installs correctly in a new directory
+
+Cleanup
+=======
+[d] JS delinted
+[d] console.logs removed or commented outs
+[d] package.json reflects all project dependencies
+
