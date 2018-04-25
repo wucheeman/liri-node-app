@@ -10,8 +10,10 @@ const Twitter = require('twitter');
 const request = require("request");
 const Spotify = require('node-spotify-api');
 const fs = require('fs');
+const moment = require('moment');
 
-
+// INITIALIZATIONS
+// =============================================================================
 // parsed is the sole key of the dotE object
 const keys = dotE.parsed;
 // console.log(keys);
@@ -39,6 +41,7 @@ var client = new Twitter({
 //console.log(client);
 
 
+
 // FUNCTIONS
 //==============================================================================
 
@@ -52,10 +55,17 @@ const convertToTitleCase = (userInput) => {
   return userInput.join(' ');
 }
 
+const getTime = () => {
+  // returns current time
+  const now = moment();
+  return moment(now).format("YYYY-MM-DD:hh:mm:ss");
+}
+
 const logItToScreenAndFile = (entry) => {
   // logs search results to screen and file
   console.log(entry);
-	fs.appendFile('log.txt', entry + '\n', function (err) {
+  const now = getTime();
+	fs.appendFile('log.txt', now + + '\n' + entry + '\n', function (err) {
 	  if (err) throw err;
 	  console.log('Saved!');
 	});
@@ -86,22 +96,21 @@ const outputSongResults = (songArray) => {
   if (songArray.length > 1) {
     referent = 'these songs: \n';
   }
-  logItToScreenAndFile('\nI found ' + referent);
+  let entry = '\nI found ' + referent + '\n';
   for (var i = 0; i < songArray.length; i++) {
     // TODO: template syntax would handle this better
-    let entry = '';
     entry = entry + ('  * Artist(s): ' + songArray[i].artists[0].name + '\n');
     entry = entry + ('  * Song name: ' + songArray[i].name + '\n');
     entry = entry + ('  * Preview link: ' + songArray[i].external_urls.spotify + '\n');
-    entry = entry + ('  * Album: ' + songArray[i].album.name + '\n');
-    logItToScreenAndFile(entry);
+    entry = entry + ('  * Album: ' + songArray[i].album.name + '\n\n');
   }
+  logItToScreenAndFile(entry);
 }
 
 const outputMovieResults = (movieInfo) => {
   // what its name says; try/catch used in case data are missing
   let entry = '';
-  entry = '\n' + entry + 'I found this information for you: \n';
+  entry = '\n' + entry + 'I found this movie for you: \n';
   entry = entry + 'Title: ' + JSON.parse(movieInfo).Title + '\n';
   try {
     entry = entry + 'Release Date: ' + JSON.parse(movieInfo).Released + '\n';

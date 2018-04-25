@@ -11,7 +11,6 @@
 [x] access Spotify and retrieve data
 [x] identify correct data from spotify for default song
 [x] search for a song from Spotify based on user input and output correct result
-[] add handling of request error similar to talkToOMDB
 
 [x] access OMDB and retrieve data
 [x] retrieve required data from OMDB for default movie
