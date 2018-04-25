@@ -1,0 +1,70 @@
+LIRI TEST RUN 3 RESULTS
+
+d = deferred
+e = met by enhancement
+f = failed
+p = passed
+s = skipped
+w = waiting for further work
+
+Requirements
+============
+[p] At user command, connects to Twitter
+[p] Retrieves 20 last tweets on connection
+[p] Displays each tweet and when it was tweeted
+[p] At user command, connects to Spotify and retrieves information on a specified song
+[p] Displays these data for each song:
+    (p) Artist(s)
+    (p) The song's name
+    (p) A preview link of the song from Spotify
+    (p) The album that the song is from
+[p] Retrieves data for specified default song if no other is specified
+[p] At user command, connects to OMDb and retrieves information on a specified movie
+[p] Displays these data for each movie:
+    (p) Title of the movie.
+    (p) Year the movie came out.
+    (p) IMDB Rating of the movie.
+    (p) Rotten Tomatoes Rating of the movie.
+    (p) Country where the movie was produced.
+    (p) Language of the movie.
+    (p) Plot of the movie.
+    (p) Actors in the movie.
+[p] Retrieves data for specified default movie if no other is specified
+[p] At user command, connects to Spotify and retrieves information based on data in random.txt
+[p] Displays information on this song identically to any other song
+[p] API secrets are not exposed via the display or the repo
+
+Bonus
+=====
+[p] App logs output from Twitter to log.txt; does not overwrite existing text
+[p] App logs output from Spotify search to log.txt; does not overwrite existing text
+[p] App logs output from OMDB search to log.txt; does not overwrite existing text
+[d] App connects to OMDB and retrieves information based on data in random.txt
+[d] App connects to Twitter and retrieves information based on data in random.txt
+[d] App randomly selects between Spotify, Twitter, and OMDB when using data in random.txt
+
+Functionality
+=============
+[p] App initializes globals correctly / otherwise starts up OK
+[p] App reinitializes globals correctly / otherwise starts up OK
+[p] App normalizes / validates input
+    (p) leading white spaces
+    (p) multiple white spaces within search term
+    (p) some/all initial letters are lower case
+[d] App provides help when the user enters 'help'
+[f] Handles missing data in response without failure ('Bad Day' test case; Train Watching test case)
+
+Display
+=======
+No requirements
+
+Installation
+============
+[] Package installs correctly in a new directory
+
+Cleanup
+=======
+p[] JS delinted
+[p] console.logs removed or commented outs
+[] package.json reflects all project dependencies
+
