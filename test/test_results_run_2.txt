@@ -9,17 +9,17 @@ w = waiting for further work
 
 Requirements
 ============
-[f] At user command, connects to Twitter
-[f] Retrieves 20 last tweets on connection
-f[] Displays each tweet and when it was tweeted
-[f] At user command, connects to Spotify and retrieves information on a specified song
+[p] At user command, connects to Twitter
+[p] Retrieves 20 last tweets on connection
+[f] Displays each tweet and when it was tweeted
+[p] At user command, connects to Spotify and retrieves information on a specified song
 [f] Displays these data for each song:
     () Artist(s)
     () The song's name
     () A preview link of the song from Spotify
     () The album that the song is from
-[f] Retrieves data for specified default song if no other is specified
-[f] At user command, connects to OMDb and retrieves information on a specified movie
+[p] Retrieves data for specified default song if no other is specified
+[p] At user command, connects to OMDb and retrieves information on a specified movie
 [f] Displays these data for each movie:
     () Title of the movie.
     () Year the movie came out.
@@ -29,8 +29,8 @@ f[] Displays each tweet and when it was tweeted
     () Language of the movie.
     () Plot of the movie.
     () Actors in the movie.
-[f] Retrieves data for specified default movie if no other is specified
-[f] At user command, connects to Spotify and retrieves information based on data in random.txt
+[p] Retrieves data for specified default movie if no other is specified
+[p] At user command, connects to Spotify and retrieves information based on data in random.txt
 [f] Displays information on this song identically to any other song
 [p] API secrets are not exposed via the display or the repo
 
