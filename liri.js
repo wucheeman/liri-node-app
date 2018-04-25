@@ -154,6 +154,7 @@ const outputTweets = (tweets) => {
   let entry = '\nChanneling thoughts from Lao Tzu:\n';
   for (var i = 0; i < tweets.length; i++) {
     entry = entry + '\nTweet ' + (i + 1) + ':\n';
+    entry = entry + 'Sent: ' + tweets[i].created_at + '\n';
     entry = entry + tweets[i].full_text + '\n';
   }
   logItToScreenAndFile(entry);
@@ -231,12 +232,11 @@ const talkToTwitter = () => {
     if (error) {
       throw error;
     }
-    //console.log (tweets[0]);
+    console.log (tweets[0]);
     outputTweets(tweets);
   });
 }
 
-// TODO: refactor so talkToRandom can use
 const talkToUser = () => {
   // takes user input and starts the right processing flow
   console.log('In talkToUser');
