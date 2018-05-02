@@ -137,7 +137,8 @@ const outputMovieResults = (movieInfo) => {
 };
 
 const outputTweets = (tweets) => {
-  let entry = '\nChanneling thoughts from Lao Tzu:\n';
+  // Channeling thoughts from Lao Tzu:
+  let entry = '';
   for (var i = 0; i < tweets.length; i++) {
     entry = entry + '\nTweet ' + (i + 1) + ':\n';
     entry = entry + 'Sent: ' + tweets[i].created_at + '\n';

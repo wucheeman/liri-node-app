@@ -1,7 +1,7 @@
 # LIRI!
 
 ## What the project does
-This is an implementation of LIRI, the Language Interpretation and Recognition Interface. LIRI is a command-line Node.js application that retrives data from Twitter, Spotify, or OMDB. It is being built as homework for the February 2018 UNC Coding Boot Camp. Comments on the app and code will be added here when it is complete.
+This is an implementation of LIRI, the Language Interpretation and Recognition Interface. LIRI is a command-line Node.js application that retrives data from Twitter, Spotify, or OMDB. It was built as homework for the February 2018 UNC Coding Boot Camp.
 
 ## How to get started with the application
 To enjoy searching with Liri, you must have Node.js installed on your computer, and you will need API keys for Twitter, Spotify, and OMDB. Once those tasks are done, download the application from GitHub and open a terminal window in the same directory. The command prompt is shown as '$'. Enter:
